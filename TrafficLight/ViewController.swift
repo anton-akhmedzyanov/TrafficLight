@@ -18,9 +18,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        super.viewWillLayoutSubviews()
+      
+       
         startButton.layer.cornerRadius = 10
-        
         
         redView.layer.cornerRadius = redView.frame.width / 2
         yellowView.layer.cornerRadius = yellowView.frame.width / 2
@@ -30,7 +30,15 @@ class ViewController: UIViewController {
         redView.alpha = 0.2
         yellowView.alpha = 0.2
         greenView.alpha = 0.2
-            }
+    }
+    
+    override func viewWillLayoutSubviews() {
+        
+        redView.layer.cornerRadius = redView.frame.width / 2
+        yellowView.layer.cornerRadius = yellowView.frame.width / 2
+        greenView.layer.cornerRadius = greenView.frame.width / 2
+        
+    }
 
     @IBAction func pressStar() {
         startButton.setTitle(redView.alpha == 0.2 ? "Start" : "Next", for: .normal)
